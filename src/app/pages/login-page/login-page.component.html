@@ -1,0 +1,73 @@
+<section class="hero is-info is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title mogra larger-text">
+        loja pequenos arteiros
+      </h1>
+      <br>
+
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <form [formGroup]="form">
+            <p class="control" id="emailControl">
+              <!--<input type="email" class="input is-large" (blur)="checkEmail()" [ngClass]="{ 'is-danger': !form.controls.email.valid && !form.controls.email.pristine }"
+                placeholder="E-mail" formControlName="email">-->
+              <input type="email" class="input is-large" [ngClass]="{ 'is-danger': !form.controls.email.valid && !form.controls.email.pristine }"
+                placeholder="E-mail" formControlName="email">
+              <span class="tag is-danger is-medium" style="margin-top: 5px;" *ngIf="!form.controls.email.valid && !form.controls.email.pristine">E-mail inválido</span>
+            </p>
+            <br>
+            <p class="control has-icons-right">
+              <input type="password" class="input is-large is-success" placeholder="Password" formControlName="password">
+              <span class="tag is-danger is-medium" style="margin-top: 5px;" *ngIf="!form.controls.password.valid && !form.controls.password.pristine">Senha inválida</span>
+            </p>
+            <br>
+            <p>
+              <button (click)="submit()" class="button is-info is-inverted is-outlined is-large is-fullwidth" [disabled]="!form.valid">Entrar
+                            </button>
+            </p>
+            <hr>
+
+            <p>
+              <a routerLink="/signup" class="button is-info is-inverted is-outlined">Ainda não sou cadastrado</a>
+
+              <button (click)="showModal()" class="button is-info is-inverted is-outlined">Termos de uso</button>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal" id="modalTermos">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Termos de Uso</p>
+      <button (click)="hideModal()" class="delete"></button>
+    </header>
+    <section class="modal-card-body">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pretium massa id metus euismod, et venenatis mi consequat. Fusce
+      maximus posuere neque sed volutpat. Mauris est eros, pretium sed tellus et, elementum scelerisque nunc. Suspendisse
+      sollicitudin porta ipsum, lacinia dapibus ex convallis non. Vestibulum ante ipsum primis in faucibus orci luctus et
+      ultrices posuere cubilia Curae; Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque dignissim
+      viverra nunc eu eleifend. Nunc id convallis tellus, vitae bibendum elit. Nam sapien est, venenatis a lectus porta,
+      sollicitudin aliquam ipsum. Quisque iaculis ante nibh, rutrum convallis enim mollis in. Sed sollicitudin justo vitae
+      dui placerat sagittis. Vestibulum vitae scelerisque lectus. Etiam ac convallis quam, at tincidunt justo. Sed maximus
+      sit amet diam non mattis. Fusce dictum mauris sit amet sapien consectetur pulvinar. Vivamus eu sapien congue, dapibus
+      ligula eget, tristique metus. Integer volutpat turpis tempus ipsum convallis dignissim et nec augue. Sed fringilla
+      dolor eu eros ullamcorper vehicula. Phasellus nec lorem justo. Nulla quis augue ut tortor molestie volutpat. Nulla
+      facilisi. Nulla nec mattis erat. Fusce mattis dolor et neque laoreet, ac venenatis nunc ullamcorper. Fusce convallis
+      ligula justo, sit amet vulputate enim vehicula eu. Ut at ligula lacus. Morbi risus nunc, bibendum vitae maximus id,
+      ornare id leo. Proin ultricies purus ut egestas pulvinar. Donec risus ante, rutrum a lacus nec, viverra fermentum lectus.
+      Proin in magna quis lorem scelerisque tristique. Pellentesque quis velit sit amet nisl dapibus aliquam nec eu augue.
+      Vivamus id massa sollicitudin, cursus lacus vitae, lacinia dolor. Ut volutpat, ipsum non ultrices sodales, nisi nibh
+      dapibus leo, laoreet ultricies magna lorem eu neque. Donec gravida neque eget maximus dignissim. Duis a tortor sed
+      purus dignissim dapibus eget at magna. In et scelerisque purus, nec gravida lacus.
+    </section>
+    <footer class="modal-card-foot">
+      <button (click)="hideModal()" class="button">Ok</button>
+    </footer>
+  </div>
+</div>
