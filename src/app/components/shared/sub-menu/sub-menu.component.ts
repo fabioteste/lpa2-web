@@ -14,14 +14,15 @@ export class SubMenuComponent implements OnInit {
   
   constructor(private cartService: CartService, private router: Router) { 
     this.cartService.cartChange.subscribe((data) => {
-      console.log(data);
       this.totalItems = data.length;
     });
 
     var data:any = JSON.parse(localStorage.getItem('lpa.user'));
     if (data) 
         this.user = data.name;
-  }
+
+    this.cartService.load();
+  }  
 
   ngOnInit() {
   }

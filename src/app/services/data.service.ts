@@ -22,7 +22,11 @@ export class DataService {
         return this.http.post(this.serviceUrl + 'v1/authenticate', dt, options).map((res: Response) => res.json());
     }
 
-    validateToken(token: string) {
-        return true;
+    getProducts() {
+        return this.http
+            .get(this.serviceUrl + 'v1/products')
+            .map((res: Response) => res.json());
     }
+
+    
 }

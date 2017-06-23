@@ -27,8 +27,12 @@ import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { CartService } from './services/cart.service';
 import { AuthService } from './services/auth.service';
 
+//Directives
+import { NumberDirective } from './directives/number.directive';
+
 @NgModule({
   declarations: [
+    NumberDirective,
     AppComponent,
     HeadbarComponent,
     SubMenuComponent,

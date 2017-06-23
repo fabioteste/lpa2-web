@@ -30,7 +30,7 @@
                         </p>
                         <br />
                         <p class="control">
-                            <input type="text" class="input is-large" placeholder="CPF" formControlName="document">
+                            <input type="text" class="input is-large" placeholder="CPF" formControlName="document" maxlength="14" number="999.999.999-99">
                             <span class="tag is-danger is-medium" style="margin-top: 5px;" *ngIf="!form.controls.document.valid && !form.controls.document.pristine">Documento inválido</span>
                         </p>
                         <br />
