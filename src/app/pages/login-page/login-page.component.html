@@ -8,13 +8,16 @@
 
       <div class="columns">
         <div class="column is-half is-offset-one-quarter">
+          <div class="notification is-danger" *ngIf="errors.length > 0">
+            <ul>
+              <li *ngFor="let err of errors">{{ err.message }}</li>
+            </ul>
+          </div>
           <form [formGroup]="form">
-            <p class="control" id="emailControl">
-              <!--<input type="email" class="input is-large" (blur)="checkEmail()" [ngClass]="{ 'is-danger': !form.controls.email.valid && !form.controls.email.pristine }"
-                placeholder="E-mail" formControlName="email">-->
-              <input type="email" class="input is-large" [ngClass]="{ 'is-danger': !form.controls.email.valid && !form.controls.email.pristine }"
-                placeholder="E-mail" formControlName="email">
-              <span class="tag is-danger is-medium" style="margin-top: 5px;" *ngIf="!form.controls.email.valid && !form.controls.email.pristine">E-mail inválido</span>
+            <p class="control" id="usernameControl">
+              <input type="username" class="input is-large" [ngClass]="{ 'is-danger': !form.controls.username.valid && !form.controls.username.pristine }"
+                placeholder="Usuário" formControlName="username">
+              <span class="tag is-danger is-medium" style="margin-top: 5px;" *ngIf="!form.controls.username.valid && !form.controls.username.pristine">Usuário inválido</span>
             </p>
             <br>
             <p class="control has-icons-right">

@@ -7,41 +7,55 @@
             <br>
             <div class="columns">
                 <div class="column is-half is-offset-one-quarter">
+                    <div class="notification is-danger" *ngIf="errors.length > 0">
+                        <ul>
+                            <li *ngFor="let err of errors">{{ err.message }}</li>
+                        </ul>
+                    </div>
+                    <form [formGroup]="form">
 
-                    <p class="control">
-                        <input type="text" class="input is-large" placeholder="Nome">
-                    </p>
-                    <br />
-                    <p class="control">
-                        <input type="text" class="input is-large" placeholder="Sobrenome">
-                    </p>
-                    <br />
-                    <p class="control">
-                        <input type="email" class="input is-large" placeholder="Email">
-                    </p>
-                    <br />
-                    <p class="control">
-                        <input type="text" class="input is-large" placeholder="CPF">
-                    </p>
-                    <br />
-                    <p class="control">
-                        <input type="text" class="input is-large" placeholder="Usuário">
-                    </p>
-                    <br />
-                    <p class="control">
-                        <input type="password" class="input is-large" placeholder="Senha">
-                    </p>
-                    <br />
-                    <p class="control">
-                        <input type="password" class="input is-large" placeholder="Confirmar Senha">
-                    </p>
-                    <br />
-                    <p>
-                        <button (click)="submit()" class="button is-info is-inverted is-outlined is-large is-fullwidth">Cadastrar
+                        <p class="control">
+                            <input type="text" class="input is-large" placeholder="Nome" formControlName="firstName">
+                            <span class="tag is-danger is-medium" style="margin-top: 5px;" *ngIf="!form.controls.firstName.valid && !form.controls.firstName.pristine">Nome inválido</span>
+                        </p>
+                        <br />
+                        <p class="control">
+                            <input type="text" class="input is-large" placeholder="Sobrenome" formControlName="lastName">
+                            <span class="tag is-danger is-medium" style="margin-top: 5px;" *ngIf="!form.controls.lastName.valid && !form.controls.lastName.pristine">Sobrenome inválido</span>
+                        </p>
+                        <br />
+                        <p class="control">
+                            <input type="email" class="input is-large" placeholder="Email" formControlName="email">
+                            <span class="tag is-danger is-medium" style="margin-top: 5px;" *ngIf="!form.controls.email.valid && !form.controls.email.pristine">E-mail inválido</span>
+                        </p>
+                        <br />
+                        <p class="control">
+                            <input type="text" class="input is-large" placeholder="CPF" formControlName="document">
+                            <span class="tag is-danger is-medium" style="margin-top: 5px;" *ngIf="!form.controls.document.valid && !form.controls.document.pristine">Documento inválido</span>
+                        </p>
+                        <br />
+                        <p class="control">
+                            <input type="text" class="input is-large" placeholder="Usuário" formControlName="username">
+                            <span class="tag is-danger is-medium" style="margin-top: 5px;" *ngIf="!form.controls.username.valid && !form.controls.username.pristine">Username inválido</span>
+                        </p>
+                        <br />
+                        <p class="control">
+                            <input type="password" class="input is-large" placeholder="Senha" formControlName="password">
+                            <span class="tag is-danger is-medium" style="margin-top: 5px;" *ngIf="!form.controls.password.valid && !form.controls.password.pristine">Senha inválida</span>
+                        </p>
+                        <br />
+                        <p class="control">
+                            <input type="password" class="input is-large" placeholder="Confirmar Senha" formControlName="confirmPassword">
+                            <span class="tag is-danger is-medium" style="margin-top: 5px;" *ngIf="!form.controls.confirmPassword.valid && !form.controls.confirmPassword.pristine">Senha inválida</span>
+                        </p>
+                        <br />
+                        <p>
+                            <button (click)="submit()" class="button is-info is-inverted is-outlined is-large is-fullwidth" [disabled]="!form.valid">Cadastrar
                             </button>
-                        <br>
-                        <a routerLink="/" class="button is-info is-inverted is-outlined">Voltar para a tela de login</a>
-                    </p>
+                            <br>
+                            <a routerLink="/" class="button is-info is-inverted is-outlined">Voltar para a tela de login</a>
+                        </p>
+                    </form>
                 </div>
             </div>
 
