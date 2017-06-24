@@ -8,7 +8,7 @@ export class DataService {
 
     private serviceUrl: string = 'http://lpa2-api.azurewebsites.net/';
     constructor(private http: Http) { }
-
+ 
     createUser(data: any) {
         return this.http
             .post(this.serviceUrl + 'v1/customers', data)
@@ -28,5 +28,14 @@ export class DataService {
             .map((res: Response) => res.json());
     }
 
-    
+    createOrder(data: any) {
+        var token = localStorage.getItem('lpa.token');
+        let headers = new Headers ({ 'Content-Type': 'application.json' });
+        headers.append('Authorization', 'Bearer ${token}'); Headers
+        let options = new RequestOptions({headers: headers});
+        return this.http
+            .post(this.serviceUrl + 'v1/orders', data, options)
+            .map((res: Response) => res.json());
+    }
+
 }
