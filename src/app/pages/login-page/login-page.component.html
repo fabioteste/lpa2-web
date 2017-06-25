@@ -25,7 +25,7 @@
               <span class="tag is-danger is-medium" style="margin-top: 5px;" *ngIf="!form.controls.password.valid && !form.controls.password.pristine">Senha inválida</span>
             </p>
             <br>
-            <p>
+            <p class="control" id="btnLogin">
               <button (click)="submit()" class="button is-info is-inverted is-outlined is-large is-fullwidth" [disabled]="!form.valid">Entrar
                             </button>
             </p>

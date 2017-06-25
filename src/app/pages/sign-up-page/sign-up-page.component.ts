@@ -67,10 +67,13 @@ export class SignUpPageComponent implements OnInit {
   }
 
   submit() {
+    document.getElementById('btnSign').classList.add('is-loading');
     this.dataService.createUser(this.form.value).subscribe(result => {
+      document.getElementById('btnSign').classList.remove('is-loading');
       alert('Bem vindo a loja pequenos arteiros');
       this.router.navigateByUrl('/');
     }, error => {
+      document.getElementById('btnSign').classList.remove('is-loading');
       this.errors = JSON.parse(error._body).errors;
     });
   }

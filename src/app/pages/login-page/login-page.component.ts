@@ -47,15 +47,18 @@ export class LoginPageComponent implements OnInit {
   }
 
   submit() {
-    this.dataService
-      .authenticate(this.form.value)
-      .subscribe(result=>{
-        localStorage.setItem('lpa.token', result.token);
-        localStorage.setItem('lpa.user', JSON.stringify(result.user));
-        this.router.navigateByUrl('/home');
-      }, error=>{
-        this.errors = JSON.parse(error._body).errors;
-      });
+    document.getElementById('btnLogin').classList.add('is-loading');
+     this.dataService
+       .authenticate(this.form.value)
+       .subscribe(result=>{
+         document.getElementById('btnLogin').classList.remove('is-loading');
+         localStorage.setItem('lpa.token', result.token);
+         localStorage.setItem('lpa.user', JSON.stringify(result.user));
+         this.router.navigateByUrl('/home');
+       }, error=>{
+         document.getElementById('btnLogin').classList.remove('is-loading');
+         this.errors = JSON.parse(error._body).errors;
+       });
   }
 
 }

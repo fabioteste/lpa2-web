@@ -30,6 +30,7 @@ export class SubMenuComponent implements OnInit {
   logout() {
     localStorage.removeItem('lpa.token');
     localStorage.removeItem('lpa.user');
+    localStorage.removeItem('lpa.cart');
     this.router.navigateByUrl('/');
 
   }

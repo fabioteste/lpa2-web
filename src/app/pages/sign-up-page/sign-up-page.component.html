@@ -49,7 +49,7 @@
                             <span class="tag is-danger is-medium" style="margin-top: 5px;" *ngIf="!form.controls.confirmPassword.valid && !form.controls.confirmPassword.pristine">Senha inválida</span>
                         </p>
                         <br />
-                        <p>
+                        <p class="control" id="btnSign">
                             <button (click)="submit()" class="button is-info is-inverted is-outlined is-large is-fullwidth" [disabled]="!form.valid">Cadastrar
                             </button>
                             <br>
